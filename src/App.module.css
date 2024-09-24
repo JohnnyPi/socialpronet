@@ -1,0 +1,79 @@
+/* App.module.css */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #FFF3E0;
+}
+
+.loginContainer {
+  background-color: #FFCCBC;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.title {
+  color: #D84315;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #FFAB91;
+  border-radius: 0.5rem;
+  background-color: #FFF;
+}
+
+.button {
+  background-color: #FF5722;
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #E64A19;
+}
+
+.registerLink {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #D84315;
+}
+
+.registerLink a {
+  color: #FF5722;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.registerLink a:hover {
+  text-decoration: underline;
+}
+
+.error {
+  color: #D32F2F;
+  background-color: #FFCDD2;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+}

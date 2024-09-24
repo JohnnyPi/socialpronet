@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
+import { createMentorshipRequest } from '../services/api';
 
 function MentorshipRequest() {
-  const [topic, setTopic] = useState('');
+  const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send this data to your backend
-    console.log('Mentorship request submitted', { topic, description });
-    // Reset form
-    setTopic('');
-    setDescription('');
+    try {
+      await createMentorshipRequest({ title, description });
+      setTitle('');
+      setDescription('');
+      alert('Mentorship request created successfully!');
+    } catch (error) {
+      console.error('Failed to create mentorship request:', error);
+      alert('Failed to create mentorship request. Please try again.');
+    }
   };
 
   return (
@@ -19,14 +24,16 @@ function MentorshipRequest() {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Topic"
-          value={topic}
-          onChange={(e) => setTopic(e.target.value)}
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
         />
         <textarea
           placeholder="Describe what you'd like help with"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          required
         />
         <button type="submit">Submit Request</button>
       </form>

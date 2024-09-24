@@ -1,8 +1,10 @@
+// pages/Home.js
 import React, { useState, useEffect } from 'react';
 import Comment from '../components/Comment';
 import SupportButton from '../components/SupportButton';
 import GratitudeButton from '../components/GratitudeButton';
 import { fetchPosts } from '../services/api';
+import styles from '../App.module.css';
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -20,16 +22,18 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.home}>
       <h1>Welcome to Our Prosocial Network</h1>
       <p>Connect, support, and solve problems together.</p>
       <h2>Recent Posts</h2>
       {posts.map(post => (
-        <div key={post.id}>
+        <div key={post.id} className={styles.post}>
           <h3>{post.title}</h3>
           <p>{post.content}</p>
-          <SupportButton postId={post.id} />
-          <GratitudeButton userId={post.userId} />
+          <div className={styles.postActions}>
+            <SupportButton postId={post.id} />
+            <GratitudeButton userId={post.userId} />
+          </div>
           <Comment postId={post.id} />
         </div>
       ))}
